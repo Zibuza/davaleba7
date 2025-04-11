@@ -1,11 +1,13 @@
 const express = require("express")
 const connectToDb = require("./db/db")
 const app = express()
-const productsRouter = require("./routes/products.router")
+const moviesRouter = require("./routes/movies")
+const directorsRouter = require("./routes/director")
 app.use(express.json())
 connectToDb()
 
-app.use("/products", productsRouter)
+app.use("/movies", moviesRouter)
+app.use("/director", directorsRouter)
 
 app.get("/", (req,res) =>{
     res.send("index page")
