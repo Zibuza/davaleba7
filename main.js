@@ -1,8 +1,8 @@
 const express = require("express")
 const connectToDb = require("./db/db")
 const app = express()
-const moviesRouter = require("./routes/movies")
-const directorsRouter = require("./routes/director")
+const moviesRouter = require("./routes/moviesRouter")
+const directorsRouter = require("./routes/directorsRouter")
 app.use(express.json())
 connectToDb()
 

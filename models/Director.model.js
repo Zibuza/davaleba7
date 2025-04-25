@@ -1,20 +1,16 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const directorSchema = new mongoose.Schema({
   name: String,
   birthYear: Number,
-  nationality: String
+  nationality: String,
 });
 
-
-directorSchema.virtual('movies', {
-  ref: 'Movie',
-  localField: '_id',
-  foreignField: 'director'
+directorSchema.virtual("movies", {
+  ref: "Movie",
+  localField: "_id",
+  foreignField: "director",
+  justOne: false,
 });
 
-directorSchema.set('toObject', { virtuals: true });
-directorSchema.set('toJSON', { virtuals: true });
-
-const Director = mongoose.model('Director', directorSchema);
-module.exports = Director;
+module.exports = mongoose.model("Director", directorSchema);
